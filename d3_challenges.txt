@@ -1,0 +1,307 @@
+Question 1
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Challenges</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <script>
+
+     var dataset = ["red","orange","yellow","green","blue"];
+
+     var svg = d3.select("body").append("svg")
+       .attr("width", 1000)
+       .attr("height",1000);
+
+     svg.selectAll("circle")
+       .data(dataset)
+       .enter().append("circle")
+       .attr("cy", 50)
+       .attr("cx", function(d, i) { return (i+1) * 50; })
+       .attr("r", 10)
+       .style("fill", function(d) { return d });
+
+    </script>
+  </body>
+</html>
+
+
+Question 2:
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Challenges</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <script>
+
+     var dataset = ["red","orange","yellow","green","blue"];
+
+     var svg = d3.select("body").append("svg")
+       .attr("width", 1000)
+       .attr("height",1000);
+
+     svg.selectAll("circle")
+       .data(dataset)
+       .enter().append("circle")
+       .attr("cy", function(d, i) { return (i+1) * 50; })
+       .attr("cx", function(d, i) { return (i+1) * 50; })
+       .attr("r", 10)
+       .style("fill", function(d) { return d });
+
+    </script>
+  </body>
+</html>
+
+Question 3:
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Challenges</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <script>
+
+     var dataset = ["red","orange","yellow","green","blue"];
+
+     var svg = d3.select("body").append("svg")
+       .attr("width", 500)
+       .attr("height",500);
+
+     svg.selectAll("circle")
+       .data(dataset)
+       .enter().append("circle")
+       .attr("cy", function(d, i) { return Math.random()*500; })
+       .attr("cx", function(d, i) { return Math.random()*500; })
+       .attr("r", 10)
+       .style("fill", function(d) { return d });
+
+    </script>
+  </body>
+</html>
+
+
+Question 4
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Challenges</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <script>
+
+     var circles_dataset = ["red","green","blue"];
+     var squares_dataset = ["purple"];
+     
+     var svg = d3.select("body").append("svg")
+       .attr("width", 500)
+       .attr("height",500);
+
+     svg.selectAll("circle")
+       .data(circles_dataset)
+       .enter().append("circle")
+       .attr("cy", function(d, i) { return Math.random()*500; })
+       .attr("cx", function(d, i) { return Math.random()*500; })
+       .attr("r", 10)
+       .style("fill", function(d) { return d });
+     
+     svg.selectAll("rect")
+       .data(squares_dataset)
+       .enter().append("rect")
+       .attr("y", function(d, i) { return Math.random()*500; })
+       .attr("x", function(d, i) { return Math.random()*500; })
+       .attr("height", 20)
+       .attr("width", 20)
+       .style("fill", function(d) { return d });
+    </script>
+  </body>
+</html>
+
+Question 5:
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Challenges</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <script>
+
+     var tri_dataset = ["yellow"];
+     
+     var svg = d3.select("body").append("svg")
+       .attr("width", 500)
+       .attr("height",500);
+
+     svg.selectAll("polygon")
+     .data(tri_dataset)
+	 .enter().append("polygon")     
+     .style("stroke", "blue")  
+     .style("fill", function(d) { return d })     
+     .attr("points", "100,50, 200,150, 300,50");  
+
+    </script>
+  </body>
+</html>
+
+
+Triforce! (If time, try to make the points into a function with the formula for an equilateral triangle)
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Challenges</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <script>
+
+     var points = ["200,200, 300,25, 400,200", "100,375,200,200,300,375","300,375,400,200,500,375"];
+     
+     var svg = d3.select("body").append("svg")
+       .attr("width", 600)
+       .attr("height",600);
+
+     svg.selectAll("polygon")
+     .data(points)
+	 .enter().append("polygon")      
+     .style("fill", "yellow")  
+     .style("stroke", "gold")
+     .style("stroke-width", 5)    
+     .attr("points", function(d) { return d });
+
+    </script>
+  </body>
+</html>
+
+
+
+Bostock example: (I exported my own data but used the same column names as his data bc I 
+didn't feel like going through this file just to change all the names.)
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.dot {
+  stroke: #000;
+}
+
+</style>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+<script>
+
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var x = d3.scale.linear()
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var color = d3.scale.category10();
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.tsv("chal.tsv", function(error, data) {
+  if (error) throw error;
+
+  data.forEach(function(d) {
+    d.sepalLength = +d.sepalLength;
+    d.sepalWidth = +d.sepalWidth;
+  });
+
+  x.domain(d3.extent(data, function(d) { return d.sepalWidth; })).nice();
+  y.domain(d3.extent(data, function(d) { return d.sepalLength; })).nice();
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+    .append("text")
+      .attr("class", "label")
+      .attr("x", width)
+      .attr("y", -6)
+      .style("text-anchor", "end")
+      .text("Age at first offense");
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("class", "label")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Number of prior arrests")
+
+  svg.selectAll(".dot")
+      .data(data)
+      .enter().append("circle")
+      .attr("class", "dot")
+      .attr("r", 3.5)
+      .attr("cx", function(d) { return x(d.sepalWidth); })
+      .attr("cy", function(d) { return y(d.sepalLength); })
+      .attr('fill-opacity', 0.2)
+      .attr('stroke-opacity', 0.0)
+      .style("fill", function(d) { return color(d.species); });
+
+  var legend = svg.selectAll(".legend")
+      .data(color.domain())
+    .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  legend.append("rect")
+      .attr("x", width - 18)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", color);
+
+var new_labels = ["Was rearrested", "Was not rearrested"]
+  legend.append("text")
+  	  .data(new_labels)
+      .attr("x", width - 24)
+      .attr("y", 9)
+      .attr("dy", ".35em")
+      .style("text-anchor", "end")
+      .text(function(d) { return d; });
+
+});
+
+</script>
